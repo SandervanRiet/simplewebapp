@@ -4,4 +4,3 @@ INSERT INTO venue (id, venue_name, capacity, city, distance_from_public_transpor
 
 VALUES (1, 'Den Aalmoezenier', 100, 'Antwerpen', 1, true, false, true, false, 'https://denaalmoezenier.weebly.com/');
 
-INSERT INTO client (id, name, start_date, birth_date, gender)
