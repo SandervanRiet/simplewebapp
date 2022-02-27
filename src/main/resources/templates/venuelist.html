@@ -10,10 +10,17 @@
 <div th:replace="fragments/headerfooter :: header">Hier komt de header</div>
 <div class="filters">
     <div class="onefilter">
-        <div class="filtername">outdoor:</div>
-        <a class="buttonLook filterButton" href="/venuelist">all</a>
-        <a class="buttonLook filterButton" href="/venuelist/outdoor/yes">yes</a>
-        <a class="buttonLook filterButton" href="/venuelist/outdoor/no">no</a>
+    <div class="filtername">outdoor:</div>
+    <a class="buttonLook filterButton" th:classappend="${outdoorFilter==null} ? 'activeFilter' : ''" href="/venuelist">all</a>
+    <a class="buttonLook filterButton" th:classappend="${outdoorFilter!=null && outdoorFilter} ? 'activeFilter' : ''" href="/venuelist/outdoor/true">yes</a>
+    <a class="buttonLook filterButton" th:classappend="${outdoorFilter!=null && !outdoorFilter} ? 'activeFilter' : ''" href="/venuelist/outdoor/false">no</a>
+</div>
+    <div class="onefilter">
+        <div class="filtername">indoor:</div>
+        <a class="buttonLook filterButton" th:classappend="${outdoorFilter==null} ? 'activeFilter' : ''" href="/venuelist">all</a>
+        <a class="buttonLook filterButton" th:classappend="${outdoorFilter!=null && !outdoorFilter} ? 'activeFilter' : ''" href="/venuelist/outdoor/false">yes</a>
+        <a class="buttonLook filterButton" th:classappend="${outdoorFilter!=null && outdoorFilter} ? 'activeFilter' : ''" href="/venuelist/outdoor/true">no</a>
+
     </div>
 </div>
 <div class="row1">

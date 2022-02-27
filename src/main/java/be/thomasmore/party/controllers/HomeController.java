@@ -12,9 +12,6 @@ import java.time.format.DateTimeFormatter;
 public class HomeController {
     @GetMapping({"/", "/home"})
     public String home(Model model) {
-        int myCalculatedValue = 34 * 62;
-        model.addAttribute("myCalculatedValue", myCalculatedValue);
-        model.addAttribute("appName", "myApp");
         return "home";
     }
 
