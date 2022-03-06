@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="nl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Venuedetails</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/grouprides.css}" href="/static/css/grouprides.css"/>
+</head>
+<body>
+
+<header th:replace="fragments/headerfooter :: header">
+    <p>Hier komt de header</p>
+</header>
+
+<main>
+    <div th:if="${venue}">
+        <div th:if="${prev!=null}" class="prevButtonDiv">
+            <a class="button-look smallButton" th:href="@{'/venuedetails/' + ${prev}}">&lt;</a>
+        </div>
+        <div th:if="${next!=null}" class="nextButtonDiv">
+            <a class="button-look smallButton" th:href="@{'/venuedetails/' + ${next}}">&gt;</a>
+        </div>
+
+        <h2 th:text="${venue.getVenueName()}">Name venue</h2>
+
+        <table>
+            <tr>
+                <td><p>Info :</p></td>
+                <td><a th:text="${venue.getLinkMoreInfo()}" th:href="${venue.getLinkMoreInfo()}">link venue</a></td>
+            </tr>
+            <tr>
+                <td><p>Capacity :</p></td>
+                <td><p th:text="${venue.getCapacity()}">0</p></td>
+            </tr>
+            <tr>
+                <td><p>Food provided? :</p></td>
+                <td><p th:text="${venue.isFoodProvided() ? 'yes' : 'no'}">no</p></td>
+            </tr>
+            <tr>
+                <td><p>Indoor? :</p></td>
+                <td><p th:text="${venue.isIndoor() ? 'yes' : 'no'}">no</p></td>
+            </tr>
+            <tr>
+                <td><p>Outdoor? :</p></td>
+                <td><p th:text="${venue.isOutdoor() ? 'yes' : 'no'}">no</p></td>
+            </tr>
+            <tr>
+                <td><p>Free Parking Available? :</p></td>
+                <td><p th:text="${venue.isFreeParkingAvailable() ? 'yes' : 'no'}">no</p></td>
+            </tr>
+            <tr>
+                <td><p>Distance Public Transport in km :</p></td>
+                <td><p th:text="${venue.getDistanceFromPublicTransportInKm()}">0.0</p></td>
+            </tr>
+            <tr>
+                <td><p>City :</p></td>
+                <td><p th:text="${venue.getCity()}">Name city</p></td>
+            </tr>
+        </table>
+    </div>
+
+    <div th:unless="${venue}">
+        <h2>No venue was chosen</h2>
+    </div>
+</main>
+
+<footer th:replace="fragments/headerfooter:: footer">
+    <p>Hier komt de footer</p>
+</footer>
+
+</body>
+</html>

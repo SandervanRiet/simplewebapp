@@ -2,22 +2,23 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>about</title>
-    <link rel="stylesheet" type="text/css" media="all"
-          th:href="@{/css/party.css}" href="/static/css/party.css" />
+    <title>About</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/grouprides.css}" href="/static/css/grouprides.css"/>
 </head>
 <body>
-<div th:replace="fragments/headerfooter :: header">Hier komt de header</div>
-<ul>
-<li><p th:text="${myName}">naam</p></li>
-<li><p th:text="${myCity}">stad</p></li>
-<li><p th:text="${myStreet}">straat </p></li>
-</ul>
 
-<p><a th:href="@{/}">home</a></p>
+<header th:replace="fragments/headerfooter :: header">
+    <p>Hier komt de header</p>
+</header>
 
-<p th:text="' ik ben '+ ${myName} + ' en woon in ' + ${myStreet} +' te ' + ${myCity} ">zin </p>
+<main>
+    <h2>About me</h2>
 
-<footer th:replace="fragments/headerfooter :: footer">Hier komt de header</footer>
+</main>
+
+<footer th:replace="fragments/headerfooter :: footer">
+    <p>Hier komt de footer</p>
+</footer>
+
 </body>
 </html>

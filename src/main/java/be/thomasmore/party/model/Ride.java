@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Venue {
+public class Ride {
     @Id
     private Integer id;
     private String venueName;
@@ -17,10 +17,13 @@ public class Venue {
     private String city;
     private double distanceFromPublicTransportInKm;
 
-    public Venue() {
+
+    public Ride(String venueName, String linkMoreInfo) {
+        this.venueName = venueName;
+        this.linkMoreInfo = linkMoreInfo;
     }
 
-    public Venue(String venueName, String linkMoreInfo, int capacity, boolean foodProvided, boolean indoor, boolean outdoor, boolean freeParkingAvailable, String city, double distanceFromPublicTransportInKm) {
+    public Ride(String venueName, String linkMoreInfo, int capacity, boolean foodProvided, boolean indoor, boolean outdoor, boolean freeParkingAvailable, String city, double distanceFromPublicTransportInKm) {
         this.venueName = venueName;
         this.linkMoreInfo = linkMoreInfo;
         this.capacity = capacity;
@@ -32,12 +35,8 @@ public class Venue {
         this.distanceFromPublicTransportInKm = distanceFromPublicTransportInKm;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Ride() {
 
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getVenueName() {
@@ -110,5 +109,13 @@ public class Venue {
 
     public void setDistanceFromPublicTransportInKm(double distanceFromPublicTransportInKm) {
         this.distanceFromPublicTransportInKm = distanceFromPublicTransportInKm;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

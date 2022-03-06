@@ -1,0 +1,113 @@
+html {
+    background-color: #D0CFEC;
+    color: #4c6c5d;
+    font-family: Bahnschrift, sans-serif;
+}
+
+body{
+    margin: 0;
+
+}
+
+H1{
+    color: #EDC7CF;
+    margin: 0;
+    font-size: 60px;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav ul > li {
+    float: left;
+}
+
+nav li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav li a:hover {
+    background-color: #111;
+}
+
+header{
+    padding: 15px;
+    background-color: #333;
+}
+
+main{
+    padding: 15px;
+}
+
+tr, td{
+    margin: 0;
+}
+
+
+footer{
+    background-color: #333;
+    color: #EDC7CF;
+    text-align: center;
+    margin-bottom: 0;
+    height: 40px;
+}
+
+.button-look{
+    background-color: #EDC7CF;
+    color: #6A8E7F;
+}
+
+.button-look > a{
+    text-decoration: none;
+}
+
+.active{
+    background-color: #6A8E7F;
+    color: #EDC7CF
+}
+
+.prevButtonDiv{
+    float: left;
+}
+
+.nextButtonDiv{
+    float: right;
+}
+
+.smallButton{
+    display: block;
+    font-size: 1em;
+    padding: 0.5em;
+}
+
+.filterButton{
+    font-size: 1em;
+    padding: 0.2em;
+}
+
+.generalinfo{
+    background-color: beige;
+}
+
+.buttonListGrid{
+    display: grid;
+    grid-template-areas:
+    "filter venuelist";
+    grid-template-columns: 20em auto;
+}
+
+.filters{
+    grid-area: filter;
+}
+
+.buttonList{
+    grid-area: venuelist;
+}
