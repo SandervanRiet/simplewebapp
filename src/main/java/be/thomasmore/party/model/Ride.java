@@ -7,8 +7,8 @@ import javax.persistence.Id;
 public class Ride {
     @Id
     private Integer id;
-    private String venueName;
-    private String linkMoreInfo;
+    private String startingPoint;
+    private String moreInfo;
     private int capacity;
     private boolean foodProvided;
     private boolean indoor;
@@ -19,13 +19,13 @@ public class Ride {
 
 
     public Ride(String venueName, String linkMoreInfo) {
-        this.venueName = venueName;
-        this.linkMoreInfo = linkMoreInfo;
+        this.startingPoint = venueName;
+        this.moreInfo = linkMoreInfo;
     }
 
     public Ride(String venueName, String linkMoreInfo, int capacity, boolean foodProvided, boolean indoor, boolean outdoor, boolean freeParkingAvailable, String city, double distanceFromPublicTransportInKm) {
-        this.venueName = venueName;
-        this.linkMoreInfo = linkMoreInfo;
+        this.startingPoint = venueName;
+        this.moreInfo = linkMoreInfo;
         this.capacity = capacity;
         this.foodProvided = foodProvided;
         this.indoor = indoor;
@@ -39,20 +39,20 @@ public class Ride {
 
     }
 
-    public String getVenueName() {
-        return venueName;
+    public String getStartingPoint() {
+        return startingPoint;
     }
 
-    public void setVenueName(String venueName) {
-        this.venueName = venueName;
+    public void setStartingPoint(String venueName) {
+        this.startingPoint = venueName;
     }
 
-    public String getLinkMoreInfo() {
-        return linkMoreInfo;
+    public String getMoreInfo() {
+        return moreInfo;
     }
 
-    public void setLinkMoreInfo(String linkMoreInfo) {
-        this.linkMoreInfo = linkMoreInfo;
+    public void setMoreInfo(String linkMoreInfo) {
+        this.moreInfo = linkMoreInfo;
     }
 
     public int getCapacity() {
