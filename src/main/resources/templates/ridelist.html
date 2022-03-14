@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Venues</title>
+    <title>ridelist</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/grouprides.css}" href="/static/css/grouprides.css"/>
 </head>
 <body>
@@ -10,7 +10,21 @@
 <header th:replace="fragments/headerfooter :: header">
     <p>Hier komt de header</p>
 </header>
-
+<div class="row1">
+    <div class="row1content">
+        <div class="venuelist collectionlist">
+            <div th:each="ride: ${rides}">
+                <a class="buttonLook mediumButton" th:href="@{|/ridedetails/${ride.id}}">
+                    <span th:text="'op ' + ${ride.date} + ' om ' + ${ride.time} "></span>
+                    <br>
+                    <span th:text="${ride.name}">venue name</span>
+                    <br>
+                    <span th:text="${ride.info}">venue name</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer th:replace="fragments/headerfooter :: footer">
     <p>Hier komt de footer</p>

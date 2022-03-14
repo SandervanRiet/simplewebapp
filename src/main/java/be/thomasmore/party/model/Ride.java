@@ -2,113 +2,44 @@ package be.thomasmore.party.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 
 @Entity
 public class Ride {
     @Id
     private Integer id;
+    private String name;
     private String startingPoint;
-    private String moreInfo;
-    private int capacity;
-    private boolean foodProvided;
-    private boolean indoor;
-    private boolean outdoor;
-    private boolean freeParkingAvailable;
-    private String city;
-    private double distanceFromPublicTransportInKm;
-
-
-    public Ride(String venueName, String linkMoreInfo) {
-        this.startingPoint = venueName;
-        this.moreInfo = linkMoreInfo;
-    }
-
-    public Ride(String venueName, String linkMoreInfo, int capacity, boolean foodProvided, boolean indoor, boolean outdoor, boolean freeParkingAvailable, String city, double distanceFromPublicTransportInKm) {
-        this.startingPoint = venueName;
-        this.moreInfo = linkMoreInfo;
-        this.capacity = capacity;
-        this.foodProvided = foodProvided;
-        this.indoor = indoor;
-        this.outdoor = outdoor;
-        this.freeParkingAvailable = freeParkingAvailable;
-        this.city = city;
-        this.distanceFromPublicTransportInKm = distanceFromPublicTransportInKm;
-    }
+    private String endPoint;
+    private String info;
+    private double distanceFromAntwerpInKm;
+    @Temporal(TemporalType.DATE)
+    private Date date;
+    @Temporal(TemporalType.TIME)
+    private Date time;
 
     public Ride() {
-
     }
 
-    public String getStartingPoint() {
-        return startingPoint;
+    public Ride(Integer id, String name, String startingPoint, String endPoint, String info, double distanceFromAntwerpInKm, Date date, Date time) {
+        this.id = id;
+        this.name = name;
+        this.startingPoint = startingPoint;
+        this.endPoint = endPoint;
+        this.info = info;
+        this.distanceFromAntwerpInKm = distanceFromAntwerpInKm;
+        this.date = date;
+        this.time = time;
     }
 
-    public void setStartingPoint(String venueName) {
-        this.startingPoint = venueName;
+    public Date getTime() {
+        return time;
     }
 
-    public String getMoreInfo() {
-        return moreInfo;
-    }
-
-    public void setMoreInfo(String linkMoreInfo) {
-        this.moreInfo = linkMoreInfo;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public boolean isFoodProvided() {
-        return foodProvided;
-    }
-
-    public void setFoodProvided(boolean foodProvided) {
-        this.foodProvided = foodProvided;
-    }
-
-    public boolean isIndoor() {
-        return indoor;
-    }
-
-    public void setIndoor(boolean indoor) {
-        this.indoor = indoor;
-    }
-
-    public boolean isOutdoor() {
-        return outdoor;
-    }
-
-    public void setOutdoor(boolean outdoor) {
-        this.outdoor = outdoor;
-    }
-
-    public boolean isFreeParkingAvailable() {
-        return freeParkingAvailable;
-    }
-
-    public void setFreeParkingAvailable(boolean freeParkingAvailable) {
-        this.freeParkingAvailable = freeParkingAvailable;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public double getDistanceFromPublicTransportInKm() {
-        return distanceFromPublicTransportInKm;
-    }
-
-    public void setDistanceFromPublicTransportInKm(double distanceFromPublicTransportInKm) {
-        this.distanceFromPublicTransportInKm = distanceFromPublicTransportInKm;
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     public Integer getId() {
@@ -118,4 +49,55 @@ public class Ride {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStartingPoint() {
+        return startingPoint;
+    }
+
+    public void setStartingPoint(String startingPoint) {
+        this.startingPoint = startingPoint;
+    }
+
+    public String getEndPoint() {
+        return endPoint;
+    }
+
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+
+    public double getDistanceFromAntwerpInKm() {
+        return distanceFromAntwerpInKm;
+    }
+
+    public void setDistanceFromAntwerpInKm(double distanceFromAntwerpInKm) {
+        this.distanceFromAntwerpInKm = distanceFromAntwerpInKm;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+
 }
