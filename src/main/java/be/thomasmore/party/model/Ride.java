@@ -1,9 +1,7 @@
 package be.thomasmore.party.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+import java.awt.*;
 import java.util.Date;
 
 @Entity
@@ -11,7 +9,8 @@ public class Ride {
     @Id
     private Integer id;
     private String name;
-    private String startingPoint;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private StartingPoint startingPoint;
     private String endPoint;
     private String info;
     private double distanceFromAntwerpInKm;
@@ -23,7 +22,7 @@ public class Ride {
     public Ride() {
     }
 
-    public Ride(Integer id, String name, String startingPoint, String endPoint, String info, double distanceFromAntwerpInKm, Date date, Date time) {
+    public Ride(Integer id, String name, StartingPoint startingPoint, String endPoint, String info, double distanceFromAntwerpInKm, Date date, Date time) {
         this.id = id;
         this.name = name;
         this.startingPoint = startingPoint;
@@ -58,11 +57,11 @@ public class Ride {
         this.name = name;
     }
 
-    public String getStartingPoint() {
+    public StartingPoint getStartingPoint() {
         return startingPoint;
     }
 
-    public void setStartingPoint(String startingPoint) {
+    public void setStartingPoint(StartingPoint startingPoint) {
         this.startingPoint = startingPoint;
     }
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ridelist</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/grouprides.css}" href="/static/css/grouprides.css"/>
+</head>
+<body>
+
+<header th:replace="fragments/headerfooter :: header">
+    <p>Hier komt de header</p>
+</header>
+<div class="row1">
+    <div class="row1content">
+        <form>
+            <div class="onefilter">
+                <input type="submit" value="search" class="buttonLook">
+            </div>
+            <h3>foodshopNearby</h3>
+            <div class="onefilter">
+                <label for="foodshopNearby1" class="filtername">yes</label>
+                <input type="radio" id="foodshopNearby1" name="foodshopNearby" value="yes" th:checked="${foodshopNearby}=='yes'">
+                <label for="foodshopNearby2" class="filtername">no</label>
+                <input type="radio" id="foodshopNearby2" name="foodshopNearby" value="no" th:checked="${foodshopNearby}=='no'">
+                <label for="foodshopNearby3" class="filtername">all</label>
+                <input type="radio" id="foodshopNearby3" name="foodshopNearby" value="all" th:checked="${foodshopNearby}=='all'">
+            </div>
+            <h3>outdoor</h3>
+            <div class="onefilter">
+                <label for="pubNearby1" class="filtername">yes</label>
+                <input type="radio" id="pubNearby1" name=" pubNearby" value="yes" th:checked="${pubNearby}=='yes'">
+                <label for="pubNearby2" class="filtername">no</label>
+                <input type="radio" id="pubNearby2" name="pubNearby" value="no" th:checked="${pubNearby}=='no'">
+                <label for="pubNearby3" class="filtername">all</label>
+                <input type="radio" id="pubNearby3" name="pubNearby" value="all" th:checked="${pubNearby}=='all'">
+            </div>
+        </form>
+        <div class="venuelist collectionlist">
+            <div th:each="startingpoint: ${startingpoints}">
+                <a class="buttonLook mediumButton" th:href="@{|/startingpointdetails/${startingpoint.id}}">
+                    <span th:text="${startingpoint.startingPointName}">venue name</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/headerfooter :: footer">
+    <p>Hier komt de footer</p>
+</footer>
+
+</body>
+</html>

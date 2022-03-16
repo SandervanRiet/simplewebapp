@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="nl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>startingpointdetails</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/grouprides.css}" href="/static/css/grouprides.css"/>
+</head>
+<body>
+
+<header th:replace="fragments/headerfooter :: header">
+    <p>Hier komt de header</p>
+</header>
+
+<main>
+    <div th:if="${startingpoint}">
+        <div th:if="${prev!=null}" class="prevButtonDiv">
+            <a class="previous" th:href="@{'/startingpointdetails/' + ${prev}}">&laquo; Previous</a>
+        </div>
+        <div th:if="${next!=null}" class="nextButtonDiv">
+            <a class="next" th:href="@{'/startingpointdetails/' + ${next}}">Next &raquo;</a>
+        </div>
+
+        <div class = bannerimg>
+            <img th:src="@{/img/banner1.jpg}" alt="" src="">
+        </div>
+
+        <h2 th:text="${startingpoint.getStartingPointName()}">Name venue</h2>
+
+        <table>
+            <tr>
+                <td><p>Info :</p></td>
+                <td><a th:text="${startingpoint.getMaximumMotorcycles()}">link venue</a></td>
+            </tr>
+            <tr>
+                <td><p>Capacity :</p></td>
+                <td><p th:text="${startingpoint.getInformation()}">0</p></td>
+            </tr>
+            <tr>
+                <td><p>Food provided? :</p></td>
+                <td><p th:text="${startingpoint.getCity()}">no</p></td>
+            </tr>
+        </table>
+    </div>
+    <div class = bannerimg>
+        <img th:src="@{/img/banner2.jpg}" alt="" src="">
+    </div>
+
+    <div th:unless="${startingpoint}">
+        <h2>No startingpoint was chosen</h2>
+    </div>
+
+</main>
+
+<footer th:replace="fragments/headerfooter:: footer">
+    <p>Hier komt de footer</p>
+</footer>
+
+</body>
+</html>

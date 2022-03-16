@@ -51,4 +51,15 @@ public class RideController {
         return "ridelist";
     }
 
+    @GetMapping("/ridelist/filter")
+    public String venueListWithFilter(Model model,
+                                      @RequestParam(required = false) Integer minimumCapacity,
+                                      @RequestParam(required = false) Integer maximumCapacity) {
+        Iterable<Ride> rides = rideRepository.findByDistance(minimumCapacity, maximumCapacity);
+        model.addAttribute("maxCapacity", maximumCapacity);
+        model.addAttribute("minCapacity", minimumCapacity);
+        model.addAttribute("rides", rides);
+        return "ridelist";
+    }
+
 }

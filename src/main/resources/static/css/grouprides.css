@@ -11,13 +11,14 @@ p {
 
 h2{
     font-size: 40px;
+    text-align: center;
 }
 h3{
     font-size: 30px;
 }
 body{
     margin: 0;
-
+    padding: 0;
 }
 
 H1{
@@ -32,11 +33,12 @@ nav ul{
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    text-align: center;
+}
+nav li{
+    display: inline-block;
 }
 
-nav ul > li {
-    float: left;
-}
 
 nav li a{
     display: block;
@@ -58,9 +60,7 @@ main{
     padding: 15px;
 }
 
-tr, td{
-    margin: 0;
-}
+
 
 
 footer{
@@ -142,13 +142,13 @@ footer{
 .prevButtonDiv {
     position: fixed;
     left: 10px;
-    top: 160px;
+    top: 80px;
 }
 
 .nextButtonDiv {
     position: fixed;
     right: 10px;
-    top: 160px;
+    top: 80px;
 }
 
 
@@ -179,4 +179,47 @@ footer{
     margin: auto;
     width: 50%;
     padding: 10px;
+}
+.bannerimg{
+
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 16px;
+    font-size: 15px;
+}
+.previous {
+    background-color: cyan;
+    color: blue;
+}
+.next {
+    background-color: cyan;
+    color: blue;
+}
+.round {
+    border-radius: 50%;
+}
+table, th, td {
+    border: 1px solid;
+}
+td{
+    text-align: center;
+
+}
+table{
+    margin-left: 500px;
+    width: 50%;
+    border-collapse: collapse;
+    height:500px;
+}
+table a,p{
+    font-size: 20px;
+}
+tbody tr:nth-child(odd) {
+    background-color: grey;
+}
+
+tbody tr:nth-child(even) {
+    background-color: lightgrey;
 }
