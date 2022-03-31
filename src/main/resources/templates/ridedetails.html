@@ -19,6 +19,9 @@
         <div th:if="${next!=null}" class="nextButtonDiv">
             <a class="next" th:href="@{'/ridedetails/' + ${next}}">Next &raquo;</a>
         </div>
+        <div th:if="${ride}" class="editButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{'/admin/rideedit/' + ${ride.id}}">edit</a>
+        </div>
 
         <h2 th:text="${ride.getName()}">Name venue</h2>
 
@@ -28,10 +31,6 @@
             <div class = motorimg>
                 <img th:src="@{/img/beschrijving.jpg}" alt="" src="">
             </div>
-            </tr>
-            <tr>
-                <td><p>Info :</p></td>
-                <td><a th:text="${ride.getStartingPoint()}">link venue</a></td>
             </tr>
             <tr>
                 <td><p>Capacity :</p></td>

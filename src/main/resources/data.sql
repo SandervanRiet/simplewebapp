@@ -1,33 +1,33 @@
 insert into RIDE (
     ID, NAME, END_POINT,
-    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM)
+    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM,STARTING_POINT_ID)
 values (
-           1, 'De Roma', 'Niel',
-           'leuke rit in de hood','2021-04-3' , '22:00' , 100);
+           nextval('RIDE_SEQ'), 'De Roma', 'Niel',
+           'leuke rit in de hood','2021-04-3' , '22:00' , 100,1);
 insert into RIDE (
     ID, NAME, END_POINT,
-    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM)
+    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM,STARTING_POINT_ID)
 values (
-           2, 'De Roma', 'Niel',
-           'leuke rit in de hood','2021-04-3' , '22:00' , 50);
+           nextval('RIDE_SEQ'), 'De Roma', 'Niel',
+           'leuke rit in de hood','2021-04-3' , '22:00' , 50,1);
 insert into RIDE (
     ID, NAME, END_POINT,
-    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM)
+    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM,STARTING_POINT_ID)
 values (
-           3, 'De Roma', 'Niel',
-           'leuke rit in de hood','2021-04-3' , '22:00' , 30);
+           nextval('RIDE_SEQ'), 'De Roma', 'Niel',
+           'leuke rit in de hood','2021-04-3' , '22:00' , 30,4);
 insert into RIDE (
     ID, NAME, END_POINT,
-    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM)
+    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM,STARTING_POINT_ID)
 values (
-           4, 'De Roma', 'Niel',
-           'leuke rit in de hood','2021-04-3' , '22:00' ,150);
+           nextval('RIDE_SEQ'), 'De Roma', 'Niel',
+           'leuke rit in de hood','2021-04-3' , '22:00' ,150,1);
 insert into RIDE (
     ID, NAME, END_POINT,
-    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM)
+    INFO, DATE ,TIME, DISTANCE_FROM_ANTWERP_IN_KM,STARTING_POINT_ID)
 values (
-           5, 'De Roma', 'Niel',
-           'leuke rit in de hood','2021-04-3' , '22:00' , 60);
+           nextval('RIDE_SEQ'), 'De Roma', 'Niel',
+           'leuke rit in de hood','2021-04-3' , '22:00' , 60,2);
 
 insert into STARTING_POINT (
     ID,STARTING_POINT_NAME,MAXIMUM_MOTORCYCLES,INFORMATION,
@@ -65,3 +65,4 @@ insert into STARTING_POINT (
 values (
            6, 'scheve kerk', 100 , 'groot plein naast scheve kerk',
            'schelle',true , false );
+

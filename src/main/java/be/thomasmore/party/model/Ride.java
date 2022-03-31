@@ -1,16 +1,18 @@
 package be.thomasmore.party.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.awt.*;
 import java.util.Date;
 
 @Entity
 public class Ride {
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ride_generator")
+    @SequenceGenerator(name = "ride_generator", sequenceName = "ride_seq", allocationSize = 1)
     @Id
     private Integer id;
+    @NotBlank
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private StartingPoint startingPoint;
     private String endPoint;
     private String info;
     private double distanceFromAntwerpInKm;
@@ -18,19 +20,30 @@ public class Ride {
     private Date date;
     @Temporal(TemporalType.TIME)
     private Date time;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private StartingPoint startingPoint;
 
     public Ride() {
     }
 
-    public Ride(Integer id, String name, StartingPoint startingPoint, String endPoint, String info, double distanceFromAntwerpInKm, Date date, Date time) {
+
+
+    public Ride(Integer id, String name,  String endPoint, String info, double distanceFromAntwerpInKm, Date date, Date time) {
         this.id = id;
         this.name = name;
-        this.startingPoint = startingPoint;
         this.endPoint = endPoint;
         this.info = info;
         this.distanceFromAntwerpInKm = distanceFromAntwerpInKm;
         this.date = date;
         this.time = time;
+    }
+
+    public StartingPoint getStartingPoint() {
+        return startingPoint;
+    }
+
+    public void setStartingPoint(StartingPoint startingPoint) {
+        this.startingPoint = startingPoint;
     }
 
     public Date getTime() {
@@ -55,14 +68,6 @@ public class Ride {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public StartingPoint getStartingPoint() {
-        return startingPoint;
-    }
-
-    public void setStartingPoint(StartingPoint startingPoint) {
-        this.startingPoint = startingPoint;
     }
 
     public String getEndPoint() {

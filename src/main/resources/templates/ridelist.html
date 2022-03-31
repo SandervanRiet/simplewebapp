@@ -26,6 +26,9 @@
                             <input type="number" id="maxCapacity" name="maximumCapacity" th:value="${maxCapacity}"  step="50"> <span>persons</span>
                         </div>
                     </form>
+        <div class="newButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{/admin/ridenew}">new</a>
+        </div>
         <div class="venuelist collectionlist">
             <div th:each="ride: ${rides}">
                 <a class="buttonLook mediumButton" th:href="@{|/ridedetails/${ride.id}}">
