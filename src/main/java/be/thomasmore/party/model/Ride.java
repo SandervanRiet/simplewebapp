@@ -1,7 +1,10 @@
 package be.thomasmore.party.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.awt.*;
 import java.util.Date;
 
@@ -17,8 +20,11 @@ public class Ride {
     private String info;
     private double distanceFromAntwerpInKm;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull
     private Date date;
     @Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:mm")
     private Date time;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private StartingPoint startingPoint;

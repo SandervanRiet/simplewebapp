@@ -31,8 +31,8 @@
                 </div>
                 <div class="oneinput">
                     <label for="where" class="info">Where: </label>
-                    <select id="where" class="editfield" th:field="*{startingPoint}" th:errorclass="fieldError">
-                        <option th:each="v : ${startingPoints}" th:selected="*{startingPoint}" th:value="${v.id}" th:text="${v.startingPointName}"></option>
+                    <select id="where" class="editfield" th:field="*{startingPoint}">
+                        <option th:each="v : ${startingPoints}" th:selected="*{startingPoint}" th:value="${v.id}" th:text="${v.startingPointName}" th:errorclass="fieldError"></option>
                     </select>
                 </div>
                 <div class="oneinput">

@@ -12,29 +12,39 @@
 </header>
 <div class="row1">
     <div class="row1content">
-        <form>
-            <div class="onefilter">
-                <input type="submit" value="search" class="buttonLook">
+        <div class="filters" th:if="${showFilter}">
+            <div class="verticalmargin">
+                <a th:href="@{/startingpointlist}" class="buttonLook filterButton">-</a>
+                <form>
+                    <div class="onefilter">
+                        <input type="submit" value="search" class="buttonLook">
+                    </div>
+                    <h3>foodshopNearby</h3>
+                    <div class="onefilter">
+                        <label for="foodshopNearby1" class="filtername">yes</label>
+                        <input type="radio" id="foodshopNearby1" name="foodshopNearby" value="yes" th:checked="${foodshopNearby}=='yes'">
+                        <label for="foodshopNearby2" class="filtername">no</label>
+                        <input type="radio" id="foodshopNearby2" name="foodshopNearby" value="no" th:checked="${foodshopNearby}=='no'">
+                        <label for="foodshopNearby3" class="filtername">all</label>
+                        <input type="radio" id="foodshopNearby3" name="foodshopNearby" value="all" th:checked="${foodshopNearby}=='all'">
+                    </div>
+                    <h3>outdoor</h3>
+                    <div class="onefilter">
+                        <label for="pubNearby1" class="filtername">yes</label>
+                        <input type="radio" id="pubNearby1" name="pubNearby" value="yes" th:checked="${pubNearby}=='yes'">
+                        <label for="pubNearby2" class="filtername">no</label>
+                        <input type="radio" id="pubNearby2" name="pubNearby" value="no" th:checked="${pubNearby}=='no'">
+                        <label for="pubNearby3" class="filtername">all</label>
+                        <input type="radio" id="pubNearby3" name="pubNearby" value="all" th:checked="${pubNearby}=='all'">
+                    </div>
+                </form>
             </div>
-            <h3>foodshopNearby</h3>
-            <div class="onefilter">
-                <label for="foodshopNearby1" class="filtername">yes</label>
-                <input type="radio" id="foodshopNearby1" name="foodshopNearby" value="yes" th:checked="${foodshopNearby}=='yes'">
-                <label for="foodshopNearby2" class="filtername">no</label>
-                <input type="radio" id="foodshopNearby2" name="foodshopNearby" value="no" th:checked="${foodshopNearby}=='no'">
-                <label for="foodshopNearby3" class="filtername">all</label>
-                <input type="radio" id="foodshopNearby3" name="foodshopNearby" value="all" th:checked="${foodshopNearby}=='all'">
+        </div>
+        <div class="filters" th:unless="${showFilter}">
+            <div class="verticalmargin">
+                <a th:href="@{/startingpointlist/filter}" class="buttonLook filterButton">+</a>
             </div>
-            <h3>outdoor</h3>
-            <div class="onefilter">
-                <label for="pubNearby1" class="filtername">yes</label>
-                <input type="radio" id="pubNearby1" name=" pubNearby" value="yes" th:checked="${pubNearby}=='yes'">
-                <label for="pubNearby2" class="filtername">no</label>
-                <input type="radio" id="pubNearby2" name="pubNearby" value="no" th:checked="${pubNearby}=='no'">
-                <label for="pubNearby3" class="filtername">all</label>
-                <input type="radio" id="pubNearby3" name="pubNearby" value="all" th:checked="${pubNearby}=='all'">
-            </div>
-        </form>
+        </div>
         <div class="venuelist collectionlist">
             <div th:each="startingpoint: ${startingpoints}">
                 <a class="buttonLook mediumButton" th:href="@{|/startingpointdetails/${startingpoint.id}}">

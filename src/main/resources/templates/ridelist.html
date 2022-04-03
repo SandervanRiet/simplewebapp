@@ -6,26 +6,52 @@
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/grouprides.css}" href="/static/css/grouprides.css"/>
 </head>
 <body>
-
 <header th:replace="fragments/headerfooter :: header">
     <p>Hier komt de header</p>
 </header>
 <div class="row1">
     <div class="row1content">
-                    <form>
-                        <div class="onefilter">
-                            <input type="submit" value="search" class="buttonLook">
-                        </div>
-                        <h3>capacity</h3>
-                        <div class="onefilter">
-                            <label for="minCapacity" class="filtername">min</label>
-                            <input type="number" id="minCapacity" name="minimumCapacity" th:value="${minCapacity}"  step="50"> <span>persons</span>
-                        </div>
-                        <div class="onefilter">
-                            <label for="maxCapacity" class="filtername">max</label>
-                            <input type="number" id="maxCapacity" name="maximumCapacity" th:value="${maxCapacity}"  step="50"> <span>persons</span>
-                        </div>
-                    </form>
+        <div class="filters" th:if="${showFilter}">
+            <div class="verticalmargin">
+            <a th:href="@{/ridelist}" class="buttonLook filterButton">-</a>
+                <form>
+                    <div class="onefilter">
+                        <input type="submit" value="search" class="buttonLook">
+                    </div>
+                    <h3>capacity</h3>
+                    <div class="onefilter">
+                        <label for="minDistance" class="filtername">min</label>
+                        <input type="number" id="minDistance" name="minimumDistance" th:value="${minDistance}" step="5"> <span>motorcycles</span>
+                    </div>
+                    <div class="onefilter">
+                        <label for="maxDistance" class="filtername">max</label>
+                        <input type="number" id="maxDistance" name="maximumDistance" th:value="${maxDistance}" step="5"> <span>motorcycles</span>
+                    </div>
+                    <!--<h3>capacity</h3>
+                    <div class="onefilter">
+                        <label for="minTime" class="filtername">min</label>
+                        <input type="time" id="minTime" name="minimumTime" pattern="HH:mm" th:value="${minTime}"> <span></span>
+                    </div>
+                    <div class="onefilter">
+                        <label for="maxTime" class="filtername">max</label>
+                        <input type="time" id="maxTime" name="maximumTime" pattern="HH:mm" th:value="${maxTime}"> <span></span>
+                    </div>
+                    <div class="onefilter">
+                        <label for="minDate" class="filtername">min</label>
+                        <input type="date" id="minDate" name="minimumDate" pattern="yyyy-MM-dd" th:value="${minDate}"> <span></span>
+                    </div>
+                    <div class="onefilter">
+                        <label for="maxDate" class="filtername">max</label>
+                        <input type="date" id="maxDate" name="maximumDate" pattern="yyyy-MM-dd" th:value="${maxDate}"> <span></span>
+                    </div>-->
+                </form>
+            </div>
+        </div>
+        <div class="filters" th:unless="${showFilter}">
+            <div class="verticalmargin">
+                <a th:href="@{/ridelist/filter}" class="buttonLook filterButton">+</a>
+            </div>
+        </div>
         <div class="newButtonDiv">
             <a class="buttonLook smallButton" th:href="@{/admin/ridenew}">new</a>
         </div>
@@ -46,6 +72,5 @@
 <footer th:replace="fragments/headerfooter :: footer">
     <p>Hier komt de footer</p>
 </footer>
-
 </body>
 </html>

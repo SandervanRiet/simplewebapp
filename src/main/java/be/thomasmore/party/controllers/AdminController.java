@@ -41,9 +41,7 @@ public class AdminController {
     }
 
     @PostMapping("/rideedit/{id}")
-    public String rideEditPost(Model model, @PathVariable int id,
-                                @RequestParam(required = false) Integer[] artistIds,
-                                @Valid @ModelAttribute("ride") Ride ride, BindingResult bindingResult) {
+    public String rideEditPost(Model model, @PathVariable int id, @Valid @ModelAttribute("ride") Ride ride, BindingResult bindingResult) {
         logger.info("rideEditPost " + id + " -- new name=" + ride.getName());
         if (bindingResult.hasErrors()) {
             model.addAttribute("startingPoints", startingPointRepository.findAll());
@@ -61,8 +59,7 @@ public class AdminController {
     }
 
     @PostMapping("/ridenew")
-    public String rideNewPost(Model model,
-                               @Valid @ModelAttribute("ride") Ride ride, BindingResult bindingResult) {
+    public String rideNewPost(Model model, @Valid @ModelAttribute("ride") Ride ride, BindingResult bindingResult) {
         logger.info("rideNewPost -- new name=" + ride.getName() + ", date=" + ride.getDate());
         if (bindingResult.hasErrors()) {
             model.addAttribute("startingPoints", startingPointRepository.findAll());

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.Time;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,13 +55,22 @@ public class RideController {
     }
 
     @GetMapping("/ridelist/filter")
-    public String venueListWithFilter(Model model,
-                                      @RequestParam(required = false) Integer minimumCapacity,
-                                      @RequestParam(required = false) Integer maximumCapacity) {
-        Iterable<Ride> rides = rideRepository.findByDistance(minimumCapacity, maximumCapacity);
-        model.addAttribute("maxCapacity", maximumCapacity);
-        model.addAttribute("minCapacity", minimumCapacity);
+    public String rideListWithFilter(Model model,
+                                      @RequestParam(required = false) Double minimumDistance,
+                                      @RequestParam(required = false) Double maximumDistance
+                                      //,@RequestParam(required = false) Date maximumTime, @RequestParam(required = false) Date minimumTime, @RequestParam(required = false) Date minimumDate, @RequestParam(required = false) Date maximumDate
+    ) {
+        Iterable<Ride> rides = rideRepository.findByDistanceTimeDate(minimumDistance, maximumDistance);
+                //maximumTime, minimumTime,  minimumDate, maximumDate
+        //DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        model.addAttribute("maxDistance", maximumDistance);
+        model.addAttribute("minDistance", minimumDistance);
+        /*model.addAttribute("maxTime",maximumTime);
+        model.addAttribute("minTime",minimumTime);
+        model.addAttribute("maxDate",maximumDate);
+        model.addAttribute("minDate",minimumDate);*/
         model.addAttribute("rides", rides);
+        model.addAttribute("showFilter", true);
         return "ridelist";
     }
 

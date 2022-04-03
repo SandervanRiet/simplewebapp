@@ -18,6 +18,8 @@ import java.util.Optional;
 public class StartingPointController {
     @Autowired
     private StartingPointRepository startingPointRepository;
+    @Autowired
+    private RideRepository rideRepository;
 
 
     @GetMapping({"/startingpointdetails/{id}","/startingpointdetails"})
@@ -28,6 +30,7 @@ public class StartingPointController {
         Optional<StartingPoint> optionalNext = startingPointRepository.findFirstByIdGreaterThanOrderById(id);
         if (optionalStartingPoint.isPresent()) {
             model.addAttribute("startingpoint", optionalStartingPoint.get());
+            model.addAttribute("rides",rideRepository.findByStartingPoint(optionalStartingPoint.get()));
         }
         if (optionalPrev.isPresent()) {
             model.addAttribute("prev", optionalPrev.get().getId());
@@ -50,8 +53,8 @@ public class StartingPointController {
         return "startingpointlist";
     }
 
-    @GetMapping("/venuelist/filter")
-    public String venueListWithFilter(Model model,
+    @GetMapping("/startingpointlist/filter")
+    public String startingPointListWithFilter(Model model,
                                       @RequestParam(required = false) String pubNearby,
                                       @RequestParam(required = false) String foodshopNearby) {
         List<StartingPoint> startingPoints = startingPointRepository.findBypubNearbyfoodshopNearby(
@@ -59,8 +62,9 @@ public class StartingPointController {
                 ((foodshopNearby==null ||foodshopNearby.equals("all")) ? null : (foodshopNearby.equals("yes") ? true : false)));
         model.addAttribute("foodshopNearby", foodshopNearby);
         model.addAttribute("pubNearby",  pubNearby);
-        model.addAttribute("startingPoints",startingPoints);
-        return "venuelist";
+        model.addAttribute("startingpoints",startingPoints);
+        model.addAttribute("showFilter", true);
+        return "startingpointlist";
     }
 
 

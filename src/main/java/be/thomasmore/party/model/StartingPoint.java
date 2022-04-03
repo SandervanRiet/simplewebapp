@@ -2,8 +2,7 @@ package be.thomasmore.party.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.Collection;
+
 
 @Entity
 public class StartingPoint {
@@ -15,14 +14,12 @@ public class StartingPoint {
     private String city;
     private boolean pubNearby;
     private boolean foodshopNearby;
-    @ManyToMany
-    private Collection<Ride> rides;
+
 
     public StartingPoint() {
     }
 
-    public StartingPoint(Integer id, String startingPointName, Integer maximimMotorcycles, String information, String city, boolean pubNearby, boolean foodshopNearby) {
-        this.id = id;
+    public StartingPoint( String startingPointName, Integer maximimMotorcycles, String information, String city, boolean pubNearby, boolean foodshopNearby) {
         this.startingPointName = startingPointName;
         this.maximumMotorcycles = maximimMotorcycles;
         this.information = information;
@@ -43,9 +40,6 @@ public class StartingPoint {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getMaximumMotorcycles() {
         return maximumMotorcycles;
@@ -87,11 +81,4 @@ public class StartingPoint {
         this.foodshopNearby = foodshopNearby;
     }
 
-    public Collection<Ride> getRides() {
-        return rides;
-    }
-
-    public void setRides(Collection<Ride> rides) {
-        this.rides = rides;
-    }
 }

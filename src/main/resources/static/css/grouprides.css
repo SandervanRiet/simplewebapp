@@ -223,3 +223,12 @@ tbody tr:nth-child(odd) {
 tbody tr:nth-child(even) {
     background-color: lightgrey;
 }
+.error {
+    color: red;
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+.fieldError, input.fieldError {
+    background-color: red;
+}
