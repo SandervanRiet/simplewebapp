@@ -1,5 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="nl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="nl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Ridedetails</title>
@@ -19,7 +20,7 @@
         <div th:if="${next!=null}" class="nextButtonDiv">
             <a class="next" th:href="@{'/ridedetails/' + ${next}}">Next &raquo;</a>
         </div>
-        <div th:if="${ride}" class="editButtonDiv">
+        <div th:if="${ride}" sec:authorize="hasRole('ADMIN')" class="editButtonDiv">
             <a class="buttonLook smallButton" th:href="@{'/admin/rideedit/' + ${ride.id}}">edit</a>
         </div>
 
@@ -27,7 +28,7 @@
 
         <table>
             <tr>
-                <td><p>routebeschrijving :</p></td>
+                <td><p>Routebeschrijving :</p></td>
             <div class = motorimg>
                 <img th:src="@{/img/beschrijving.jpg}" alt="" src="">
             </div>
@@ -43,20 +44,20 @@
 
             </tr>
             <tr>
-                <td><p>Food provided? :</p></td>
-                <td><p th:text="${ride.getInfo()}">no</p></td>
-            </tr>
-            <tr>
-                <td><p>Indoor? :</p></td>
+                <td><p>Distance from Antwerp :</p></td>
                 <td><p th:text="${ride.getDistanceFromAntwerpInKm() }">no</p></td>
             </tr>
             <tr>
-                <td><p>Outdoor? :</p></td>
+                <td><p>Date :</p></td>
                 <td><p th:text="${ride.getDate() }">no</p></td>
             </tr>
             <tr>
-                <td><p>Free Parking Available? :</p></td>
+                <td><p>Time :</p></td>
                 <td><p th:text="${ride.getTime()}">no</p></td>
+            </tr>
+            <tr>
+                <td><p>Info :</p></td>
+                <td><p th:text="${ride.getInfo()}">no</p></td>
             </tr>
         </table>
     </div>

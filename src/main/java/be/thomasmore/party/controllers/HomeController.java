@@ -24,11 +24,6 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping({"/", "/home"})
-    public String home(Model model, Principal principal) {
-        final String loginName = principal==null ? "NOBODY" : principal.getName();
-        return "home";
-    }
 
 
 }

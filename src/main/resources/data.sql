@@ -1,3 +1,11 @@
+INSERT INTO USER
+(ID, username, password, role)
+VALUES
+    (nextval('USER_SEQ'), 'admin', '$2a$10$6kVdS9/B1qoZfREQTn.Kauu7wUdEn6PrCbLN41PhezNTXE04KlG62', 'ROLE_ADMIN');
+INSERT INTO USER
+(ID, username, password, role)
+VALUES
+    (nextval('USER_SEQ'), 'daria', '$2a$10$qkYEzClRvGL03mzmKI1Tw.WGRKzm19S5aqQUeFb7x5/pGw/bhq96K', 'ROLE_USER');
 insert into STARTING_POINT (
     ID,STARTING_POINT_NAME,MAXIMUM_MOTORCYCLES,INFORMATION,
     CITY,PUB_NEARBY,FOODSHOP_NEARBY)

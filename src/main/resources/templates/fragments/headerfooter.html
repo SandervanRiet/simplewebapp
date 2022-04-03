@@ -1,17 +1,21 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
   <title>Headerfooter</title>
 </head>
 <body>
 <header th:fragment="header">
+    <span sec:authorize="isAuthenticated()">logged in as <span sec:authentication="name"></span>
   <nav>
     <ul>
       <li><a th:href="@{/}">Home</a></li>
       <li><a th:href="@{/ridelist}">Ride</a></li>
       <li><a th:href="@{/startingpointlist}">Startingpoint</a></li>
       <li><a th:href="@{/about}">About</a></li>
+      <li><a th:replace="fragments/user :: loginmenu">Hier komt het login user deel</a></li>
+      <li><a th:replace="fragments/user :: logoutmenu">Hier komt het logout user deel</a></li>
     </ul>
   </nav>
 </header>

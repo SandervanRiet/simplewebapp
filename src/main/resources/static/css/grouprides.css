@@ -41,7 +41,6 @@ nav li{
 
 
 nav li a{
-    display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -121,7 +120,6 @@ footer{
 }
 
 .smallButton {
-    display: block;
     font-size: 1em;
     padding: 0.5em;
 }
@@ -231,4 +229,7 @@ tbody tr:nth-child(even) {
 
 .fieldError, input.fieldError {
     background-color: red;
+}
+header span{
+    color: white;
 }

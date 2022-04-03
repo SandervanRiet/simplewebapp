@@ -1,5 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>ridelist</title>
@@ -52,7 +53,7 @@
                 <a th:href="@{/ridelist/filter}" class="buttonLook filterButton">+</a>
             </div>
         </div>
-        <div class="newButtonDiv">
+        <div sec:authorize="hasRole('ADMIN')" class="newButtonDiv">
             <a class="buttonLook smallButton" th:href="@{/admin/ridenew}">new</a>
         </div>
         <div class="venuelist collectionlist">
