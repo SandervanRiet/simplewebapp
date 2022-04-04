@@ -40,8 +40,6 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <tr>
                 <td><p>Startpoint :</p></td>
                 <td><a th:text="${ride.getStartingPoint().getStartingPointName()}" th:href="@{'/startingpointdetails/' + ${ride.getStartingPoint().getId()}}">no</a></td>
-                <td><p  ></p></td>
-
             </tr>
             <tr>
                 <td><p>Distance from Antwerp :</p></td>

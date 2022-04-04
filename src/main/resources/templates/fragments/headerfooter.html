@@ -7,7 +7,7 @@
 </head>
 <body>
 <header th:fragment="header">
-    <span sec:authorize="isAuthenticated()">logged in as <span sec:authentication="name"></span>
+    <span sec:authorize="isAuthenticated()">logged in as <span sec:authentication="name"></span></span>
   <nav>
     <ul>
       <li><a th:href="@{/}">Home</a></li>

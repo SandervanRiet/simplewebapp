@@ -5,7 +5,7 @@ VALUES
 INSERT INTO USER
 (ID, username, password, role)
 VALUES
-    (nextval('USER_SEQ'), 'daria', '$2a$10$qkYEzClRvGL03mzmKI1Tw.WGRKzm19S5aqQUeFb7x5/pGw/bhq96K', 'ROLE_USER');
+    (nextval('USER_SEQ'), 'daria', '$2a$10$Wsh4ZHBvq2oDA0QV8phPKe4zSaRrXZkbrXFiY0SddEZVXImDrceXa', 'ROLE_USER');
 insert into STARTING_POINT (
     ID,STARTING_POINT_NAME,MAXIMUM_MOTORCYCLES,INFORMATION,
     CITY,PUB_NEARBY,FOODSHOP_NEARBY)

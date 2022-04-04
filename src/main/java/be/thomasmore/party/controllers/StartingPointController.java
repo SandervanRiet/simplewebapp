@@ -1,6 +1,5 @@
 package be.thomasmore.party.controllers;
 
-import be.thomasmore.party.model.Ride;
 import be.thomasmore.party.model.StartingPoint;
 import be.thomasmore.party.repositories.RideRepository;
 import be.thomasmore.party.repositories.StartingPointRepository;
@@ -10,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.List;
 import java.util.Optional;
 
