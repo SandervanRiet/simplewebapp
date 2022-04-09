@@ -1,5 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/grouprides.css}"/>
@@ -8,17 +9,25 @@
 <body>
 <div th:replace="fragments/headerfooter :: header">Hier komt de header</div>
 <div class="row1">
-    <div class="row1content">
+    <div class="login-form">
         <div>
             <h2>Logout</h2>
         </div>
-        <div>
+        <div class="content">
             <form th:action="@{/user/logout}" method="post">
-                <div class="oneinput saveButtonDiv">
-                    <input type="submit" value="logout" class="smallButton buttonLook">
+                <div class="input-field">
+                    <label sec:authorize="isAuthenticated()">logged in as <label sec:authentication="name"></label ></label>
                 </div>
-                <div class="oneinput cancelButtonDiv">
-                    <a href="/ridelist" class="smallButton buttonLook">cancel</a>
+                <br>
+                <br>
+                <br>
+                <div class="action" >
+                    <button>
+                        <input type="submit" class=logininput value="logout" >
+                    </button>
+                    <button>
+                        <a href="/ridelist">cancel</a>
+                    </button>
                 </div>
             </form>
         </div>

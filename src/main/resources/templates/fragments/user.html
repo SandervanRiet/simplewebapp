@@ -7,11 +7,10 @@
 </head>
 <body>
 <li sec:authorize="!isAuthenticated()" th:fragment="loginmenu">
-    <a href="/user/register">register</a>
-    <a href="/user/login">login</a>
+    <a href="/user/login">Login</a>
 </li>
 <div sec:authorize="isAuthenticated()" th:fragment="logoutmenu">
-    <a class="buttonLook menuButton" href="/user/logout">logout</a>
+    <a href="/user/logout">Logout</a>
 </div>
 </body>
 </html>

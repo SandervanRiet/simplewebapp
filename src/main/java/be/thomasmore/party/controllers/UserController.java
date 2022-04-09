@@ -31,13 +31,13 @@ public class UserController {
     private AuthenticationManager authenticationManager;
 
     @GetMapping("/login")
-    public String login(Principal principal, Model model) {
+    public String login(Principal principal) {
         if (principal != null) return "redirect:/ridelist";
         return "user/login";
     }
 
     @GetMapping("/logout")
-    public String logout(Principal principal, Model model) {
+    public String logout(Principal principal) {
         if (principal == null) return "redirect:/ridelist";
         return "user/logout";
     }
@@ -54,7 +54,7 @@ public class UserController {
                                @RequestParam String password,
                                @RequestParam String name,
                                @RequestParam String city,
-                               @RequestParam String bio) {
+                               @RequestParam String motorcycle) {
         if (principal != null) return "redirect:/ridelist";
         if (userName==null || userName.trim().equals("")) return "redirect:/ridelist";
         if (password==null || password.trim().equals("")) return "redirect:/ridelist";

@@ -19,32 +19,16 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <div class="onefilter">
                         <input type="submit" value="search" class="buttonLook">
                     </div>
-                    <h3>capacity</h3>
+                    <h3>Minimum distance</h3>
                     <div class="onefilter">
                         <label for="minDistance" class="filtername">min</label>
-                        <input type="number" id="minDistance" name="minimumDistance" th:value="${minDistance}" step="5"> <span>motorcycles</span>
+                        <input type="number" id="minDistance" name="minimumDistance" th:value="${minDistance}" step="5"> <span>distance from Antwerp</span>
                     </div>
+                    <h3>Maximum distance</h3>
                     <div class="onefilter">
                         <label for="maxDistance" class="filtername">max</label>
-                        <input type="number" id="maxDistance" name="maximumDistance" th:value="${maxDistance}" step="5"> <span>motorcycles</span>
+                        <input type="number" id="maxDistance" name="maximumDistance" th:value="${maxDistance}" step="5"> <span>distance from Antwerp</span>
                     </div>
-                    <!--<h3>capacity</h3>
-                    <div class="onefilter">
-                        <label for="minTime" class="filtername">min</label>
-                        <input type="time" id="minTime" name="minimumTime" pattern="HH:mm" th:value="${minTime}"> <span></span>
-                    </div>
-                    <div class="onefilter">
-                        <label for="maxTime" class="filtername">max</label>
-                        <input type="time" id="maxTime" name="maximumTime" pattern="HH:mm" th:value="${maxTime}"> <span></span>
-                    </div>
-                    <div class="onefilter">
-                        <label for="minDate" class="filtername">min</label>
-                        <input type="date" id="minDate" name="minimumDate" pattern="yyyy-MM-dd" th:value="${minDate}"> <span></span>
-                    </div>
-                    <div class="onefilter">
-                        <label for="maxDate" class="filtername">max</label>
-                        <input type="date" id="maxDate" name="maximumDate" pattern="yyyy-MM-dd" th:value="${maxDate}"> <span></span>
-                    </div>-->
                 </form>
             </div>
         </div>
@@ -53,17 +37,17 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <a th:href="@{/ridelist/filter}" class="buttonLook filterButton">+</a>
             </div>
         </div>
-        <div sec:authorize="hasRole('ADMIN')" class="newButtonDiv">
-            <a class="buttonLook smallButton" th:href="@{/admin/ridenew}">new</a>
+        <div sec:authorize="hasRole('ADMIN')" class="nextButtonDiv">
+            <a class="previous" th:href="@{/admin/ridenew}">new</a>
         </div>
-        <div class="venuelist collectionlist">
+        <div class="startingpointlist collectionlist">
             <div th:each="ride: ${rides}">
                 <a class="buttonLook mediumButton" th:href="@{|/ridedetails/${ride.id}}">
-                    <span th:text="'op ' + ${ride.date} + ' om ' + ${ride.time} "></span>
+                    <span th:text="'Op ' + ${ride.date} + ' om ' + ${ride.time} "></span>
                     <br>
-                    <span th:text="${ride.name}">venue name</span>
+                    <span th:text="${ride.name}">ride name</span>
                     <br>
-                    <span th:text="${ride.info}">venue name</span>
+                    <span th:text="${ride.info}">ride info</span>
                 </a>
             </div>
         </div>

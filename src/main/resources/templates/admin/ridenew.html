@@ -9,18 +9,12 @@
 <div th:replace="fragments/headerfooter :: header">Hier komt de header</div>
 <div class="row1">
     <div class="row1content" th:if="${ride}" th:object="${ride}">
-        <div th:if="${ride}" class="editButtonDiv">
-            <a class="buttonLook smallButton" th:href="@{/ridelist}">back</a>
-        </div>
         <div>
             <h2>New ride</h2>
         </div>
-        <div class="error" th:if="${#fields.hasErrors('*')}">ERROR - data is not saved</div>
-        <div>
+        <div class="container">
             <form th:action="@{/admin/ridenew}" method="post">
-                <div class="oneinput saveButtonDiv">
-                    <input type="submit" value="create" class="smallButton buttonLook">
-                </div>
+                <div class="error" th:if="${#fields.hasErrors('*')}">Fill in red boxes</div>
                 <div class="oneinput">
                     <label for="name" class="info">Name: </label>
                     <input type="text" id="name" class="editfield" th:field="*{name}" th:errorclass="fieldError">
@@ -50,6 +44,14 @@
                 <div class="oneinput">
                     <label for="extrainfo" class="info">Extra info: </label>
                     <textarea id="extrainfo" class="editfield" th:field="*{info}"></textarea>
+                </div>
+                <div class = knoppen>
+                    <div>
+                        <input type="submit" value="create" class="previous">
+                    </div>
+                    <div th:if="${ride}">
+                        <a class="previous" th:href="@{/ridelist}">back</a>
+                    </div>
                 </div>
             </form>
         </div>

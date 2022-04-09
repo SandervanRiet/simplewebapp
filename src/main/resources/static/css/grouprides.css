@@ -68,12 +68,14 @@ footer{
     text-align: center;
     margin-bottom: 0;
     height: 60px;
+    padding: 2px;
 
 }
+
 .row1 {
     display: flex;
     position: relative;
-    margin: 100px 0 20px 0;
+    margin: 100px 0 200px 0;
     min-height: 500px;
 }
 
@@ -112,11 +114,11 @@ footer{
 
 .mediumButton {
     display: block;
-    margin: 40px 500px;
-    width: 800px;
+    margin: 40px auto;
+    width: 400px;
     font-size: 1.2em;
     padding: 1em;
-    height: 100px;
+    height: 75px;
 }
 
 .smallButton {
@@ -140,13 +142,18 @@ footer{
 .prevButtonDiv {
     position: fixed;
     left: 10px;
-    top: 80px;
+    top: auto;
 }
 
 .nextButtonDiv {
     position: fixed;
     right: 10px;
-    top: 80px;
+    top: auto;
+}
+.topbutton{
+    position: fixed;
+    left: 130px;
+    top: auto;
 }
 
 
@@ -162,7 +169,7 @@ footer{
 .buttonListGrid{
     display: grid;
     grid-template-areas:
-    "filter venuelist";
+    "filter startingpointlist";
     grid-template-columns: 20em auto;
 }
 
@@ -171,7 +178,7 @@ footer{
 }
 
 .buttonList{
-    grid-area: venuelist;
+    grid-area: startingpointlist;
 }
 .motorimg{
     margin: auto;
@@ -190,6 +197,14 @@ a {
 .previous {
     background-color: cyan;
     color: blue;
+}
+
+input.previous {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 16px;
+    font-size: 15px;
+    border-style: none;
 }
 .next {
     background-color: cyan;
@@ -224,7 +239,6 @@ tbody tr:nth-child(even) {
 .error {
     color: red;
     font-size: larger;
-    margin-bottom: 20px;
 }
 
 .fieldError, input.fieldError {
@@ -232,4 +246,126 @@ tbody tr:nth-child(even) {
 }
 header span{
     color: white;
+}
+.login-form {
+    background: #fff;
+    width: 500px;
+    margin: 65px auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+}
+.login-form h1 {
+    padding: 35px 35px 0 35px;
+    font-weight: 300;
+}
+.login-form .content {
+    padding: 35px;
+    text-align: center;
+}
+.login-form .input-field {
+    padding: 12px 5px;
+}
+.login-form .input-field input {
+    font-size: 16px;
+    display: block;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    padding: 10px 1px;
+    border: 0;
+    border-bottom: 1px solid #747474;
+    outline: none;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.login-form .input-field input::-webkit-input-placeholder {
+    text-transform: uppercase;
+}
+.login-form .input-field input::-moz-placeholder {
+    text-transform: uppercase;
+}
+.login-form .input-field input:-ms-input-placeholder {
+    text-transform: uppercase;
+}
+.login-form .input-field input::-ms-input-placeholder {
+    text-transform: uppercase;
+}
+.login-form .input-field input::placeholder {
+    text-transform: uppercase;
+}
+.login-form .input-field input:focus {
+    border-color: #222;
+}
+.login-form a.link {
+    text-decoration: none;
+    color: #747474;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 20px;
+}
+.login-form .action {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+.login-form .action button {
+    width: 100%;
+    border: none;
+    padding: 18px;
+    font-family: 'Rubik', sans-serif;
+    cursor: pointer;
+    background: #e8e9ec;
+    color: #777;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    letter-spacing: 0.2px;
+    outline: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.login-form .action button:hover {
+    background: #d8d8d8;
+}
+.login-form .action button:nth-child(2) {
+    background: #2d3b55;
+    color: #fff;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 4px;
+}
+.login-form .action button:nth-child(2):hover {
+    background: #3c4d6d;
+}
+.login-form button a{
+    color:white;
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+}
+.login-form button input{
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    border-style: none;
+    font-size: 20px;
+    background: #e8e9ec;
+}
+
+.container {
+    width: 200px;
+    clear: both;
+    margin: auto;
+}
+
+.container input {
+    width: 100%;
+    clear: both;
+}
+.knoppen{
+    display: flex;
+    justify-content: space-evenly;
 }

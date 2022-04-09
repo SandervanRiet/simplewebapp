@@ -24,37 +24,37 @@
             <img th:src="@{/img/banner1.jpg}" alt="" src="">
         </div>
 
-        <h2 th:text="${startingpoint.getStartingPointName()}">Name venue</h2>
+        <h2 th:text="${startingpoint.getStartingPointName()}">Name</h2>
 
         <table>
             <tr>
-                <td><p>maximum number of motorcycles:</p></td>
-                <td><a th:text="${startingpoint.getMaximumMotorcycles()}">link venue</a></td>
+                <td><p>Maximum number of motorcycles:</p></td>
+                <td><a th:text="${startingpoint.getMaximumMotorcycles()}">max</a></td>
             </tr>
             <tr>
-                <td><p>city :</p></td>
+                <td><p>City :</p></td>
                 <td><p th:text="${startingpoint.getCity()}">no</p></td>
             </tr>
             <tr>
-                <td><p>food shop nearby :</p></td>
+                <td><p>Food shop nearby :</p></td>
                 <td><p th:text="${startingpoint.isFoodshopNearby() ? 'yes' : 'no'}">0</p></td>
             </tr>
             <tr>
-                <td><p>pub nearby :</p></td>
+                <td><p>Pub nearby :</p></td>
                 <td><p th:text="${startingpoint.isPubNearby() ? 'yes' : 'no'}">0</p></td>
             </tr>
 
             <tr>
-                <td><p>information :</p></td>
-                <td><p th:text="${startingpoint.getInformation()}">0</p></td>
+                <td><p>Information :</p></td>
+                <td><p th:text="${startingpoint.getInformation()}">info</p></td>
             </tr>
         </table>
-        <h2>rides</h2>
+        <h2>Rides</h2>
         <table>
             <div th:each="ride, status: ${rides}">
                 <tr>
                     <td> <a th:text="${ride.name}" th:href="@{'/ridedetails/' + ${ride.id}}">no</a></td>
-                    <td><p th:text="${ride.getInfo()}">no</p></td>
+                    <td><p th:text="${ride.getInfo()}">info</p></td>
                 </tr>
             </div>
         </table>

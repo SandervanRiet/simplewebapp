@@ -21,11 +21,11 @@ public class RideController {
     @GetMapping({"/ridedetails/{id}","/ridedetails"})
     public String rideDetails(Model model, @PathVariable(required = false) Integer id) {
         if (id==null) return "ridedetails";
-        Optional<Ride> optionalVenue = rideRepository.findById(id);
+        Optional<Ride> optionalRide = rideRepository.findById(id);
         Optional<Ride> optionalPrev = rideRepository.findFirstByIdLessThanOrderByIdDesc(id);
         Optional<Ride> optionalNext = rideRepository.findFirstByIdGreaterThanOrderById(id);
-        if (optionalVenue.isPresent()) {
-            model.addAttribute("ride", optionalVenue.get());
+        if (optionalRide.isPresent()) {
+            model.addAttribute("ride", optionalRide.get());
         }
         if (optionalPrev.isPresent()) {
             model.addAttribute("prev", optionalPrev.get().getId());
@@ -52,17 +52,10 @@ public class RideController {
     public String rideListWithFilter(Model model,
                                       @RequestParam(required = false) Double minimumDistance,
                                       @RequestParam(required = false) Double maximumDistance
-                                      //,@RequestParam(required = false) Date maximumTime, @RequestParam(required = false) Date minimumTime, @RequestParam(required = false) Date minimumDate, @RequestParam(required = false) Date maximumDate
     ) {
-        Iterable<Ride> rides = rideRepository.findByDistanceTimeDate(minimumDistance, maximumDistance);
-                //maximumTime, minimumTime,  minimumDate, maximumDate
-        //DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        Iterable<Ride> rides = rideRepository.findByDistance(minimumDistance, maximumDistance);
         model.addAttribute("maxDistance", maximumDistance);
         model.addAttribute("minDistance", minimumDistance);
-        /*model.addAttribute("maxTime",maximumTime);
-        model.addAttribute("minTime",minimumTime);
-        model.addAttribute("maxDate",maximumDate);
-        model.addAttribute("minDate",minimumDate);*/
         model.addAttribute("rides", rides);
         model.addAttribute("showFilter", true);
         return "ridelist";

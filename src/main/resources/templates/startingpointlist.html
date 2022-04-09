@@ -37,6 +37,11 @@
                         <label for="pubNearby3" class="filtername">all</label>
                         <input type="radio" id="pubNearby3" name="pubNearby" value="all" th:checked="${pubNearby}=='all'">
                     </div>
+                    <h3>Maximum motorcycles</h3>
+                    <div class="onefilter">
+                        <label for="maximumMotorcycles" class="filtername">max</label>
+                        <input type="number" id="maximumMotorcycles" name="maximumMotorcycles" th:value="${maximumMotorcycles}" step="5"> <span>motorcycles</span>
+                    </div>
                 </form>
             </div>
         </div>
@@ -45,10 +50,12 @@
                 <a th:href="@{/startingpointlist/filter}" class="buttonLook filterButton">+</a>
             </div>
         </div>
-        <div class="venuelist collectionlist">
+        <div class="startingpointlist collectionlist">
             <div th:each="startingpoint: ${startingpoints}">
                 <a class="buttonLook mediumButton" th:href="@{|/startingpointdetails/${startingpoint.id}}">
-                    <span th:text="${startingpoint.startingPointName}">venue name</span>
+                    <span th:text="${startingpoint.startingPointName}">startingpoint name</span>
+                    <br>
+                    <span th:text="'Bevind zich in de gemeente ' + ${startingpoint.getCity()}"></span>
                 </a>
             </div>
         </div>

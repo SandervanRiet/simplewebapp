@@ -19,17 +19,9 @@ public interface RideRepository extends CrudRepository<Ride, Integer> {
     Iterable<Ride> findByStartingPoint(StartingPoint startingPoint);
 
     @Query("SELECT r FROM Ride r WHERE (:min IS NULL OR r.distanceFromAntwerpInKm >= :min) " +
-            "AND (:max IS NULL OR r.distanceFromAntwerpInKm <= :max) "
-            /*+
-            "AND (:mintime IS NULL OR r.time >= :mintime)" +
-            "AND (:maxtime IS NULL OR r.time <= :maxtime)" +
-            "AND (:mindate IS NULL OR r.date >= :mindate)" +
-            "AND (:maxdate IS NULL OR r.date <= :maxdate)"*/
-    )
-    Iterable<Ride> findByDistanceTimeDate(
+            "AND (:max IS NULL OR r.distanceFromAntwerpInKm <= :max) ")
+    Iterable<Ride> findByDistance(
             @Param("min") Double min, @Param("max") Double max
-           /* , @Param("mintime") Date mintime, @Param("maxtime") Date maxtime,
-            @Param("mindate") Date mindate, @Param("maxdate") Date maxdate*/
     );
 }
 

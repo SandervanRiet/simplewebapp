@@ -8,37 +8,39 @@
 <body>
 <div th:replace="fragments/headerfooter :: header">Hier komt de header</div>
 <div class="row1">
-    <div class="row1content">
+    <div class="login-form">
         <div>
             <h2>Register</h2>
         </div>
-        <div>
+        <div class="content">
             <form th:action="@{/user/register}" method="post">
-                <div class="oneinput saveButtonDiv">
-                    <input type="submit" value="go!" class="smallButton buttonLook">
-                </div>
-                <div class="oneinput cancelButtonDiv">
-                    <a href="/ridelist" class="smallButton buttonLook">cancel</a>
-                </div>
-                <div class="oneinput">
+                <div class="input-field">
                     <label for="username" class="info">Username: </label>
                     <input type="text" id="username" name="userName" class="editfield">
                 </div>
-                <div class="oneinput">
+                <div class="input-field">
                     <label for="password" class="info">Password: </label>
                     <input type="password" id="password" name="password" class="editfield">
                 </div>
-                <div class="oneinput">
+                <div class="input-field">
                     <label for="name" class="info">Name: </label>
                     <input type="text" id="name" name="name" class="editfield">
                 </div>
-                <div class="oneinput">
+                <div class="input-field">
                     <label for="city" class="info">City: </label>
                     <input type="text" id="city" name="city" class="editfield">
                 </div>
-                <div class="oneinput">
-                    <label for="bio" class="info">Bio: </label>
-                    <input type="text" id="bio" name="bio" class="editfield">
+                <div class="input-field">
+                    <label for="motorcycle" class="info">Motorcycle: </label>
+                    <input type="text" id="motorcycle" name="motorcycle" class="editfield">
+                </div>
+                <div class="action" >
+                    <button>
+                        <input type="submit" class=logininput value="register" >
+                    </button>
+                    <button>
+                        <a href="/ridelist">cancel</a>
+                    </button>
                 </div>
             </form>
         </div>

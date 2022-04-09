@@ -16,8 +16,11 @@ public interface StartingPointRepository extends CrudRepository<StartingPoint, I
     Optional<StartingPoint> findFirstByOrderByIdAsc();
     @Query("SELECT s FROM StartingPoint s " +
             "WHERE (:foodshopNearby IS NULL OR s.foodshopNearby = :foodshopNearby) " +
-            "AND (:pubNearby IS NULL OR s.pubNearby = :pubNearby) ")
-    List<StartingPoint> findBypubNearbyfoodshopNearby(
+            "AND (:pubNearby IS NULL OR s.pubNearby = :pubNearby) " +
+            "AND (:max IS NULL OR s.maximumMotorcycles <= :max) "
+    )
+    List<StartingPoint> findBypubNearbyfoodshopNearbymaximumMotorcycles(
             @Param("foodshopNearby") Boolean foodshopNearby,
-            @Param("pubNearby") Boolean pubNearby);
+            @Param("pubNearby") Boolean pubNearby,
+            @Param("max") Integer max);
 }

@@ -53,14 +53,15 @@ public class StartingPointController {
 
     @GetMapping("/startingpointlist/filter")
     public String startingPointListWithFilter(Model model,
-                                      @RequestParam(required = false) String pubNearby,
-                                      @RequestParam(required = false) String foodshopNearby) {
-        List<StartingPoint> startingPoints = startingPointRepository.findBypubNearbyfoodshopNearby(
+                                      @RequestParam(required = false) String pubNearby, @RequestParam(required = false) String foodshopNearby, @RequestParam(required = false) Integer maximumMotorcycles) {
+        List<StartingPoint> startingPoints = startingPointRepository.findBypubNearbyfoodshopNearbymaximumMotorcycles(
                 ((pubNearby==null || pubNearby.equals("all")) ? null : (pubNearby.equals("yes") ? true : false)),
-                ((foodshopNearby==null ||foodshopNearby.equals("all")) ? null : (foodshopNearby.equals("yes") ? true : false)));
+                ((foodshopNearby==null ||foodshopNearby.equals("all")) ? null : (foodshopNearby.equals("yes") ? true : false)),
+                maximumMotorcycles);
         model.addAttribute("foodshopNearby", foodshopNearby);
-        model.addAttribute("pubNearby",  pubNearby);
-        model.addAttribute("startingpoints",startingPoints);
+        model.addAttribute("pubNearby", pubNearby);
+        model.addAttribute("startingpoints", startingPoints);
+        model.addAttribute("maximumMotorcycles", maximumMotorcycles);
         model.addAttribute("showFilter", true);
         return "startingpointlist";
     }
